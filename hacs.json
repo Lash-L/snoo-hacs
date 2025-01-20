@@ -1,0 +1,6 @@
+{
+  "name": "Snoo",
+  "hacs": "1.0.0",
+  "homeassistant": "2024.12",
+  "domains": ["sensor", "binary_sensor", "switch"]
+}

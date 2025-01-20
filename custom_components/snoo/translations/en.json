@@ -1,0 +1,57 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "password": "Password",
+          "username": "Username"
+        },
+        "data_description": {
+          "password": "Your Snoo password",
+          "username": "Your Snoo username or email"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "state": {
+        "name": "State",
+        "state": {
+          "baseline": "Baseline",
+          "level1": "Level 1",
+          "level2": "Level 2",
+          "level3": "Level 3",
+          "level4": "Level 4",
+          "pretimeout": "Pre-timeout",
+          "stop": "Stopped",
+          "timeout": "Timeout"
+        }
+      },
+      "time_left": {
+        "name": "Time left"
+      }
+    },
+    "binary_sensor": {
+      "left_clip": {
+        "name": "Left safety clip"
+      },
+      "right_clip": {
+        "name": "Right safety clip"
+      }
+    },
+    "switch": {
+      "sticky_white_noise": {
+        "name": "Sticky white noise"
+      }
+    }
+  }
+}
