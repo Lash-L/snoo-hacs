@@ -4,10 +4,9 @@
   "codeowners": ["@Lash-L"],
   "config_flow": true,
   "documentation": "https://github.com/Lash-L/python-snoo",
-  "issue_tracker": "https://github.com/Lash-L/pyhton-snoo/issues",
+  "issue_tracker": "https://github.com/Lash-L/pythddon-snoo/issues",
   "iot_class": "cloud_push",
   "loggers": ["snoo"],
-  "quality_scale": "bronze",
   "requirements": ["python-snoo==0.3.3"],
   "version": "1.0.0"
 }
