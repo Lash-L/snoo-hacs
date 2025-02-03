@@ -1,24 +1,24 @@
 {
   "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
     "step": {
       "user": {
         "data": {
-          "username": "[%key:common::config_flow::data::username%]",
-          "password": "[%key:common::config_flow::data::password%]"
+          "password": "Password",
+          "username": "Username"
         },
         "data_description": {
-          "username": "Your Snoo username or email",
-          "password": "Your Snoo password"
+          "password": "Your Snoo password",
+          "username": "Your Snoo username or email"
         }
       }
-    },
-    "error": {
-      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
-      "unknown": "[%key:common::config_flow::error::unknown%]"
-    },
-    "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
   },
   "entity": {
@@ -31,13 +31,39 @@
           "level2": "Level 2",
           "level3": "Level 3",
           "level4": "Level 4",
-          "stop": "Stopped",
           "pretimeout": "Pre-timeout",
+          "stop": "Stopped",
           "timeout": "Timeout"
         }
       },
       "time_left": {
         "name": "Time left"
+      }
+    },
+    "binary_sensor": {
+      "left_clip": {
+        "name": "Left safety clip"
+      },
+      "right_clip": {
+        "name": "Right safety clip"
+      }
+    },
+    "switch": {
+      "sticky_white_noise": {
+        "name": "Sticky white noise"
+      }
+    },
+    "select": {
+      "intensity": {
+        "name": "Intensity",
+        "state": {
+          "BASELINE": "Baseline",
+          "LEVEL1": "Level 1",
+          "LEVEL2": "Level 2",
+          "LEVEL3": "Level 3",
+          "LEVEL4": "Level 4",
+          "ONLINE": "Off"
+        }
       }
     }
   }
