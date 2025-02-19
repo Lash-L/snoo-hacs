@@ -26,7 +26,7 @@ class SnooSwitchEntityDescription(SwitchEntityDescription):
     """Describes a Snoo sensor."""
 
     value_fn: Callable[[SnooData], bool]
-    set_value_fn: Callable[[Snoo, SnooDevice, bool], None]
+    set_value_fn: Callable[[Snoo, SnooDevice, SnooData, bool], None]
 
 
 BINARY_SENSOR_DESCRIPTIONS: list[SnooSwitchEntityDescription] = [
@@ -34,8 +34,17 @@ BINARY_SENSOR_DESCRIPTIONS: list[SnooSwitchEntityDescription] = [
         key="sticky_white_noise",
         translation_key="sticky_white_noise",
         value_fn=lambda data: data.state_machine.sticky_white_noise == "on",
-        set_value_fn=lambda snoo_api, device, state: snoo_api.set_sticky_white_noise(
-            device, state
+        set_value_fn=lambda snoo_api,
+        device,
+        data,
+        state: snoo_api.set_sticky_white_noise(device, state),
+    ),
+    SnooSwitchEntityDescription(
+        key="hold",
+        translation_key="hold",
+        value_fn=lambda data: data.state_machine.hold == "on",
+        set_value_fn=lambda snoo_api, device, data, state: snoo_api.set_level(
+            device, data.state_machine.level, state
         ),
     ),
 ]
@@ -68,11 +77,11 @@ class SnooSwitch(SnooDescriptionEntity, SwitchEntity):
     async def async_turn_on(self) -> None:
         """Turn the entity on."""
         await self.entity_description.set_value_fn(
-            self.coordinator.snoo, self.coordinator.device, True
+            self.coordinator.snoo, self.coordinator.device, self.coordinator.data, True
         )
 
     async def async_turn_off(self) -> None:
         """Turn the entity off."""
         await self.entity_description.set_value_fn(
-            self.coordinator.snoo, self.coordinator.device, False
+            self.coordinator.snoo, self.coordinator.device, self.coordinator.data, False
         )

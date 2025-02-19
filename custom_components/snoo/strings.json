@@ -51,6 +51,9 @@
     "switch": {
       "sticky_white_noise": {
         "name": "Sticky white noise"
+      },
+      "hold": {
+        "name": "Hold"
       }
     },
     "select": {
